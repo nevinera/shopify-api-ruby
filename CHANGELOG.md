@@ -6,6 +6,13 @@ Note: For changes to the API, see https://shopify.dev/changelog?filter=api
 - [#1443](https://github.com/Shopify/shopify-api-ruby/pull/1443) `ShopifyAPI::Auth::TokenExchange.exchange_token` always uses the session token's `dest` claim, instead of the `shop` parameter, that is now deprecated. It will show a deprecation warning and the argument will be removed in the next major version.
 - [#1446](https://github.com/Shopify/shopify-api-ruby/pull/1446) `ShopifyAPI::Clients::HttpClient` requests now apply retry logic to 502/503/504 responses alongside 500s.
 
+## 16.3.0 (2026-08-04)
+- [#1443](https://github.com/Shopify/shopify-api-ruby/pull/1443) Add `ShopifyAPI::Utils::ShopValidator` with `sanitize_shop_domain` and `sanitize!`.
+- [#1443](https://github.com/Shopify/shopify-api-ruby/pull/1443) Derive the target shop for `ShopifyAPI::Auth::TokenExchange.exchange_token` from the session token's `dest` claim. The `shop` argument is now deprecated and will be removed in the next major version.
+- [#1454](https://github.com/Shopify/shopify-api-ruby/pull/1454) Add generated REST resource classes for the 2026-07 API version.
+- [#1457](https://github.com/Shopify/shopify-api-ruby/pull/1457) Allow GraphQL Admin API and direct REST clients to target the 2026-10 API version. Generated REST resource classes for 2026-10 are not bundled yet.
+- [#1457](https://github.com/Shopify/shopify-api-ruby/pull/1457) Raise `ShopifyAPI::Errors::RestResourceNotLoadedError` (a `NameError` subclass) with version-specific guidance when generated REST resources aren't bundled, instead of a bare `uninitialized constant` error.
+
 ## 16.2.0 (2026-04-13)
 - [#1442](https://github.com/Shopify/shopify-api-ruby/pull/1442) Add support for 2026-04 API version
 - [#1437](https://github.com/Shopify/shopify-api-ruby/pull/1437) Support new `shopify-*` webhook header format
